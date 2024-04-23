@@ -28,7 +28,6 @@ class ToggleBoolAction : AnAction() {
         val editor = e.getData(PlatformDataKeys.EDITOR) ?: return
         val document = editor.document
 
-
         WriteCommandAction.runWriteCommandAction(project) {
             val range = getWordRangeAtPosition(editor = editor)
             if (range != null) {
