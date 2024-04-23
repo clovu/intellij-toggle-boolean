@@ -1,18 +1,16 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>com.github.cloveryou.intellijtoggleboolean</id>
-    <name>intellij-toggle-boolean</name>
-    <vendor>clover-you</vendor>
+    <id>top.ctong.plugin.toogleboolean</id>
+    <name>Toggle Boolean</name>
+    <vendor>Clover You</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
-    <resource-bundle>messages.MyBundle</resource-bundle>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.cloveryou.intellijtoggleboolean.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.cloveryou.intellijtoggleboolean.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
+    <actions>
+        <action id="ToggleBool" class="top.ctong.plugin.toggleboolean.action.ToggleBoolAction" text="ToggleBoolean"
+                description="Toggle boolean">
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="alt B"/>
+        </action>
+    </actions>
 </idea-plugin>
