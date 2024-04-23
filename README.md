@@ -1,8 +1,8 @@
 # intellij-toggle-boolean
 
 ![Build](https://github.com/Clover-You/intellij-toggle-boolean/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
+[![Version](https://img.shields.io/jetbrains/plugin/v/24245.svg)](https://plugins.jetbrains.com/plugin/24245)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/24245.svg)](https://plugins.jetbrains.com/plugin/24245)
 
 <!-- Plugin description -->
 - 在布尔值（即真和假）之间轻松切换。
