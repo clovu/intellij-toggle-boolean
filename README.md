@@ -5,11 +5,13 @@
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/24248.svg)](https://plugins.jetbrains.com/plugin/24248)
 
 <!-- Plugin description -->
-- 在布尔值（即真和假）之间轻松切换。
-- 切换选定的布尔值，或仅切换光标下方的布尔值。
-- 默认键绑定：alt+b（或设置自定义键）。
+Inspired by the VsCode [ToggleBoolean](https://marketplace.visualstudio.com/items?itemName=silesky.toggle-boolean) plugin, toggle-bool
 
-## 支持的布尔值列表
+- Easily toggle between booleans (i.e. true and false).
+- Toggles selected boolean(s), or just the boolean that's beneath the cursor.
+- Default keybinding: `alt+b` (or set a custom one).
+
+## List of boolean values by default
 
 - true <-> false
 - off <-> on
@@ -21,8 +23,6 @@
 
 ## Action
 
-提供了以下命令
-
-- `ToggleBool` 切换 bool
+- `ToggleBool` toggle bool action
 
 <!-- Plugin description end -->
