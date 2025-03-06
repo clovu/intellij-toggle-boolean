@@ -11,6 +11,8 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Ref
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiElement
+import org.apache.commons.lang.StringUtils
+import top.ctong.plugin.toggleboolean.settings.BoolCvsSettings
 import top.ctong.plugin.toggleboolean.utils.BoolCvs
 
 class ToggleBoolAction : AnAction() {
@@ -28,13 +30,18 @@ class ToggleBoolAction : AnAction() {
         val editor = e.getData(PlatformDataKeys.EDITOR) ?: return
         val document = editor.document
 
+        val mappings = BoolCvsSettings.getInstance().mappings
+
         WriteCommandAction.runWriteCommandAction(project) {
             val range = getWordRangeAtPosition(editor = editor)
             if (range != null) {
                 val word = document.charsSequence.subSequence(range.startOffset, range.endOffset).toString()
-                val replaceWord = BoolCvs.cvt(word)
-                if (replaceWord != null)
-                    document.replaceString(range.startOffset, range.endOffset, replaceWord)
+                if (StringUtils.isNotBlank(word)) {
+                    val mapping = mappings.associate { it.source to it.target }
+                    val replaceWord = BoolCvs.findMapping(word, mapping)
+                    if (replaceWord != null)
+                        document.replaceString(range.startOffset, range.endOffset, replaceWord)
+                }
             }
         }
     }

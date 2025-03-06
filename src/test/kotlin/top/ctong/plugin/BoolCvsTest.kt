@@ -38,4 +38,21 @@ class BoolCvsTest {
         assert(BoolCvs.cvt("BEFORE") == "AFTER") { "match result should be 'AFTER'" }
         assert(BoolCvs.cvt("OfF") == "On") { "match result should be 'On'" }
     }
+
+    @Test
+    fun findMapping() {
+        val mappings = mapOf(
+            "true" to "false",
+            "false" to "true",
+            "on" to "off",
+            "off" to "on"
+        )
+
+        assert(BoolCvs.findMapping("true", mappings) == "false") { "match result should be 'false'" }
+        assert(BoolCvs.findMapping("false", mappings) == "true") { "match result should be 'true'" }
+        assert(BoolCvs.findMapping("on", mappings) == "off") { "match result should be 'off'" }
+        assert(BoolCvs.findMapping("off", mappings) == "on") { "match result should be 'on'" }
+        assert(BoolCvs.findMapping("unknown", mappings) == null) { "if the word does not match, it should return null." }
+    }
+
 }

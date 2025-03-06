@@ -5,7 +5,7 @@ import java.util.*
 
 object BoolCvs {
 
-    private val WORD_RECORDS = mapOf(
+    val WORD_RECORDS = mapOf(
         "true" to "false",
         "false" to "true",
         "on" to "off",
@@ -25,7 +25,11 @@ object BoolCvs {
     )
 
     fun cvt(boolWord: String): String? {
-        val tw = WORD_RECORDS[boolWord] ?: WORD_RECORDS[boolWord.lowercase(Locale.getDefault())]
+        return findMapping(boolWord, WORD_RECORDS)
+    }
+
+    fun findMapping(boolWord: String, mappings: Map<String, String>): String? {
+        val tw = mappings[boolWord] ?: mappings[boolWord.lowercase(Locale.getDefault())]
         return format(boolWord, tw)
     }
 

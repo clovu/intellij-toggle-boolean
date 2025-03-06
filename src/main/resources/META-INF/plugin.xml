@@ -13,4 +13,9 @@
             <keyboard-shortcut keymap="$default" first-keystroke="alt B"/>
         </action>
     </actions>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService serviceImplementation="top.ctong.plugin.toggleboolean.settings.BoolCvsSettings"/>
+        <projectConfigurable instance="top.ctong.plugin.toggleboolean.settings.BoolCvsConfigurable" displayName="Toggle Boolean"/>
+    </extensions>
 </idea-plugin>
