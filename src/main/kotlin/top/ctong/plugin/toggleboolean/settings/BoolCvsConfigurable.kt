@@ -5,8 +5,8 @@ import com.intellij.openapi.actionSystem.*
 import com.intellij.openapi.options.Configurable
 import com.intellij.ui.table.JBTable
 import com.intellij.util.ui.components.BorderLayoutPanel
-import org.apache.commons.lang.StringUtils
 import top.ctong.plugin.toggleboolean.utils.BoolCvs
+import top.ctong.plugin.toggleboolean.utils.StringUtils
 import java.awt.BorderLayout
 import javax.swing.*
 import javax.swing.table.DefaultTableModel

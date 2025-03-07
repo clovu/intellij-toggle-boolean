@@ -11,9 +11,9 @@ import com.intellij.openapi.project.Project
 import com.intellij.openapi.util.Ref
 import com.intellij.psi.PsiDocumentManager
 import com.intellij.psi.PsiElement
-import org.apache.commons.lang.StringUtils
 import top.ctong.plugin.toggleboolean.settings.BoolCvsSettings
 import top.ctong.plugin.toggleboolean.utils.BoolCvs
+import top.ctong.plugin.toggleboolean.utils.StringUtils
 
 class ToggleBoolAction : AnAction() {
 
