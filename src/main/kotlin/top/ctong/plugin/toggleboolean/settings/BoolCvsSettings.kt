@@ -4,6 +4,9 @@ import com.intellij.openapi.components.PersistentStateComponent
 import com.intellij.openapi.components.State
 import com.intellij.openapi.components.Storage
 import com.intellij.util.xmlb.XmlSerializerUtil
+import top.ctong.plugin.toggleboolean.utils.BoolCvs
+import kotlin.collections.component1
+import kotlin.collections.component2
 
 /**
  * Custom toggle map
@@ -14,7 +17,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil
 @State(name = "ToggleBoolean", storages = [Storage("toggle-boolean.xml")])
 class BoolCvsSettings : PersistentStateComponent<BoolCvsSettings> {
 
-    var mappings: MutableList<MappingRow> = mutableListOf()
+    var mappings: MutableList<MappingRow> = getDefaultMappings()
 
     /**
      * @return a component state. All properties, public and annotated fields are serialized.
@@ -38,6 +41,15 @@ class BoolCvsSettings : PersistentStateComponent<BoolCvsSettings> {
      */
     override fun loadState(state: BoolCvsSettings) {
         XmlSerializerUtil.copyBean(state, this)
+    }
+
+    /**
+     * Gets default word mappings from BoolCvs utility
+     */
+    fun getDefaultMappings(): MutableList<MappingRow> {
+        return BoolCvs.WORD_RECORDS.map { (key, value) ->
+            MappingRow(key, value)
+        }.toMutableList()
     }
 
     companion object {

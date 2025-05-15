@@ -109,27 +109,6 @@ class BoolCvsConfigurable: Configurable {
     }
 
     /**
-     * Gets default word mappings from BoolCvs utility
-     */
-    private fun getDefaultMappings(): MutableList<MappingRow> {
-        return BoolCvs.WORD_RECORDS.map { (key, value) ->
-            MappingRow(key, value)
-        }.toMutableList()
-    }
-
-    /**
-     * Gets current mappings from settings, or defaults if empty
-     */
-    private fun getMappings(): MutableList<MappingRow> {
-        val settings = BoolCvsSettings.getInstance()
-        return if (settings.mappings.isEmpty()) {
-            getDefaultMappings()
-        } else {
-            settings.mappings
-        }
-    }
-
-    /**
      * Indicates whether the Swing form was modified or not.
      * This method is called very often, so it should not take a long time.
      *
@@ -138,7 +117,7 @@ class BoolCvsConfigurable: Configurable {
     override fun isModified(): Boolean {
         if (mainPanel == null || mappingTable == null) return false
 
-        val mappings = getMappings()
+        val mappings = BoolCvsSettings.getInstance().mappings
         val tableModel = mappingTable!!.model as DefaultTableModel
 
         if (tableModel.rowCount != mappings.size) {
@@ -185,7 +164,7 @@ class BoolCvsConfigurable: Configurable {
      */
     override fun reset() {
         if (mappingTable == null) return
-        val mappings = getMappings()
+        val mappings = BoolCvsSettings.getInstance().mappings
         val tableModel = mappingTable!!.model as DefaultTableModel
 
         // Clear the current table data
