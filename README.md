@@ -1,6 +1,6 @@
 # intellij-toggle-boolean
 
-![Build](https://github.com/Clover-You/intellij-toggle-boolean/workflows/Build/badge.svg)
+![Build](https://github.com/clovu/intellij-toggle-boolean/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/24248.svg)](https://plugins.jetbrains.com/plugin/24248)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/24248.svg)](https://plugins.jetbrains.com/plugin/24248)
 
